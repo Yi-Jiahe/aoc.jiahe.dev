@@ -7,13 +7,13 @@ import init, {
 } from "aoc-restore-snow-operations";
 
 function App() {
+  const [puzzleInput, setPuzzleInput] = useState("");
   const [answer, setAnswer] = useState("");
 
   const generateAnswer = (f: (input: string) => any) => {
     init().then(() => {
       try {
-        const puzzle_input = (document.getElementById('puzzle-input')! as HTMLTextAreaElement).value;
-        setAnswer(f(puzzle_input).toString());
+        setAnswer(f(puzzleInput).toString());
       } catch {
         alert(`Unable to generate solution.
 
@@ -32,7 +32,7 @@ function App() {
   return (
     <div className="App">
       <h1>Puzzle Input</h1>
-      <textarea id="puzzle-input" />
+      <textarea value={puzzleInput} onChange={(e) => setPuzzleInput(e.target.value)} />
       <h1>Answer</h1>
       <p>{answer}</p>
       <h1>2023</h1>
@@ -44,9 +44,9 @@ function App() {
               {Array.from(Array(2)).map((_, j) => {
                 try {
                   const f = solutions[i][j];
-                  return <button onClick={() => { generateAnswer(f) }} key={j}>Part {j+1}</button>
+                  return <button onClick={() => { generateAnswer(f) }} key={j}>Part {j + 1}</button>
                 } catch {
-                  return <button disabled key={j}>Part {j+1}</button>
+                  return <button disabled key={j}>Part {j + 1}</button>
                 }
               })}
             </div>
