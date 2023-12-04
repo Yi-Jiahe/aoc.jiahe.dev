@@ -3,7 +3,9 @@ import './App.css';
 import { useState } from 'react';
 import init, {
   day_1_get_sum_of_calibration_values_in_document, day_1_get_sum_of_calibration_values_in_document_part_2,
-  day_2_get_sum_of_possible_game_ids, day_2_get_sum_of_minimum_power
+  day_2_get_sum_of_possible_game_ids, day_2_get_sum_of_minimum_power,
+  day_3_get_sum_of_part_numbers, day_3_get_sum_of_gear_ratios,
+  day_4_total_scratchcard_points, day_4_get_final_number_of_cards,
 } from "aoc-restore-snow-operations";
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
   const solutions = [
     [day_1_get_sum_of_calibration_values_in_document, day_1_get_sum_of_calibration_values_in_document_part_2],
     [day_2_get_sum_of_possible_game_ids, day_2_get_sum_of_minimum_power],
+    [day_3_get_sum_of_part_numbers, day_3_get_sum_of_gear_ratios],
+    [day_4_total_scratchcard_points, day_4_get_final_number_of_cards],
   ];
 
   return (
