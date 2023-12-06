@@ -6,6 +6,8 @@ import init, {
   day_2_get_sum_of_possible_game_ids, day_2_get_sum_of_minimum_power,
   day_3_get_sum_of_part_numbers, day_3_get_sum_of_gear_ratios,
   day_4_total_scratchcard_points, day_4_get_final_number_of_cards,
+  day_5_get_lowest_location, day_5_get_lowest_location_part_2,
+  day_6_product_of_ways_to_beat_each_race, day_6_get_number_of_ways_to_win,
 } from "aoc-restore-snow-operations";
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
     [day_2_get_sum_of_possible_game_ids, day_2_get_sum_of_minimum_power],
     [day_3_get_sum_of_part_numbers, day_3_get_sum_of_gear_ratios],
     [day_4_total_scratchcard_points, day_4_get_final_number_of_cards],
+    [day_5_get_lowest_location, day_5_get_lowest_location_part_2],
+    [day_6_product_of_ways_to_beat_each_race, day_6_get_number_of_ways_to_win],
   ];
 
   return (
@@ -46,12 +50,11 @@ function App() {
             <div key={i}>
               <p>Day {i + 1}</p>
               {Array.from(Array(2)).map((_, j) => {
-                try {
-                  const f = solutions[i][j];
-                  return <button onClick={() => { generateAnswer(f) }} key={j}>Part {j + 1}</button>
-                } catch {
-                  return <button disabled key={j}>Part {j + 1}</button>
+                if (solutions.length < (i + 1) || solutions[i].length < (j + 1)) {
+                  return (<button disabled key={j}>Part {j + 1}</button>);
                 }
+                const f = solutions[i][j];
+                return (<button onClick={() => { generateAnswer(f) }} key={j}>Part {j + 1}</button>);
               })}
             </div>
           );
